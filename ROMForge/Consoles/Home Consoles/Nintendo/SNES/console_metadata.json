@@ -1,0 +1,21 @@
+{
+  "type": "console",
+  "manufacturer": "Nintendo",
+  "generation": 4,
+  "years": "1990-2003",
+  "media_type": "cartridge",
+  "architecture": "16-bit",
+  "popularity": "high",
+  "online_support": false,
+  "multiplayer": "local",
+  "region_encoding": true,
+  "special_tags": [
+    "rumble_pak",
+    "super_fx"
+  ],
+  "AV_outputs": [
+    "composite",
+    "HDMI"
+  ],
+  "multiplayer_type": "local"
+}

@@ -1,0 +1,40 @@
+{
+  "all_tags": [
+    "16-bit",
+    "cartridge",
+    "nintendo",
+    "console",
+    "high",
+    "local",
+    "composite",
+    "HDMI",
+    "rumble_pak",
+    "super_fx"
+  ],
+  "tag_categories": {
+    "generation": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "media_type": [
+      "cartridge",
+      "cd",
+      "disk",
+      "card",
+      "digital"
+    ],
+    "region": [
+      "NTSC-U",
+      "PAL",
+      "NTSC-J",
+      "Region-free"
+    ]
+  }
+}
