@@ -117,6 +117,9 @@ class ROMManagerApp(tb.Window):
         # Favorites toggle
         fav_btn = tb.Button(self.sidebar, text='★ Favorites', command=self.toggle_favorites, bootstyle=INFO)
         fav_btn.pack(pady=5)
+        # Add System button for Home Consoles
+        add_system_btn = tb.Button(self.sidebar, text='+ Add Home Console', command=self.add_home_console, bootstyle=PRIMARY)
+        add_system_btn.pack(pady=5)
 
     def _get_icon(self, filename):
         # Placeholder: returns a blank image for now
@@ -206,6 +209,40 @@ class ROMManagerApp(tb.Window):
 
     def toggle_favorites(self):
         messagebox.showinfo('Favorites', 'Favorites feature coming soon!')
+
+    def add_home_console(self):
+        # Prompt for system name and manufacturer
+        win = tk.Toplevel(self)
+        win.title('Add Home Console')
+        win.geometry('350x200')
+        tb.Label(win, text='Console Name:').pack(pady=5)
+        name_entry = tb.Entry(win, width=30)
+        name_entry.pack(pady=5)
+        tb.Label(win, text='Manufacturer:').pack(pady=5)
+        mfg_entry = tb.Entry(win, width=30)
+        mfg_entry.pack(pady=5)
+        def on_add():
+            name = name_entry.get().strip()
+            mfg = mfg_entry.get().strip()
+            if not name or not mfg:
+                messagebox.showerror('Error', 'Please enter both name and manufacturer.')
+                return
+            # Add to sidebar (under Home Consoles)
+            for iid in self.sidebar_tree.get_children():
+                if self.sidebar_tree.item(iid, 'text') == 'Consoles':
+                    # Insert new system
+                    self.sidebar_tree.insert(iid, 'end', text=name, image=self._get_icon('snes.png'))
+                    break
+            # Optionally: Save to disk or update config here
+            win.destroy()
+            # Ask to search for games
+            if messagebox.askyesno('Search Games', f'Search for full games list for {name}?'):
+                self.search_games_for_console(name)
+        tb.Button(win, text='Add', command=on_add, bootstyle=SUCCESS).pack(pady=10)
+
+    def search_games_for_console(self, console_name):
+        # Placeholder: In real use, would call a scraper or API
+        messagebox.showinfo('Search Games', f'Searching for games for {console_name}... (feature coming soon)')
 
     def on_exit(self):
         # Save UI state
