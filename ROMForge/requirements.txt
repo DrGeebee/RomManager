@@ -1,0 +1,4 @@
+# requirements.txt for ROMForge
+requests
+pandas
+python-dateutil
